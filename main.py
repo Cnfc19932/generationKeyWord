@@ -1,13 +1,22 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 import os
 import json
 import re
 
 class WordProperties(object):
 
-	def __init__(self, debug = False, inputFile = 'program/input.txt', outputFile = 'program/output.txt'):
+	def __init__(self, text = '', debug = False, inputFile = 'program/input.txt', outputFile = 'program/output.txt'):
+
 		self.inputFile = inputFile 
 		self.outputFile = outputFile 
 		self.debug = debug
+		
+		if text:
+			f = open(self.inputFile, 'w')
+			f.write(text)
+			f.close()
+		
 		self.result = {}
 		self._run()
 
@@ -71,7 +80,7 @@ class WordProperties(object):
 
 	
 
-a = WordProperties(debug = False)
+a = WordProperties(text = 'Москва',debug = False)
 k = a.findPropertiesOr(['geo','persn','famn','abbr','patrn'])
 
 for i in k:
