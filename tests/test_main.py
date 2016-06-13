@@ -1,14 +1,21 @@
 import unittest
+import main as m
+#import sys
 
-class Test1(unittest.TestCase):
+
+class removeBadChar(unittest.TestCase):
 	def setUp(self):
-		print "---start test"
+		#print sys.path
+#		a =  
+		pass
 
 	def tearDown(self):
-		print "----end test"
-
+	#	print "----end test"
+		pass
 	def test_firsttest(self):
-		self.assertEqual(1, 1) 
+		#pass
+		k = m.WordProperties()._remove_bad_char('23')
+		self.assertEqual([u'23'], k) 
 
-suite = unittest.TestLoader().loadTestsFromTestCase(Test1)
+suite = unittest.TestLoader().loadTestsFromTestCase(removeBadChar)
 unittest.TextTestRunner(verbosity=2).run(suite)

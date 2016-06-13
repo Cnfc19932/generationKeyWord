@@ -5,6 +5,19 @@ import json
 import re
 
 class WordProperties(object):
+	def  _remove_bad_char(self, text = ''):
+		"""Удаление плохих символов"""
+
+		if text != '':
+			self.text = text
+		k = re.findall(ur'(?u)\w+',self.text.decode('utf-8'))
+	#	print k
+	#	for i in k:
+	#		print i
+		return k
+		
+		
+
 
 	def __init__(self, text = '', debug = False, inputFile = 'program/input.txt', outputFile = 'program/output.txt'):
 
@@ -12,13 +25,14 @@ class WordProperties(object):
 		self.outputFile = outputFile 
 		self.debug = debug
 		
-		if text:
+		if text != '':
+			self.text = ''
 			f = open(self.inputFile, 'w')
-			f.write(text)
+			f.write(text.encode('utf-8'))
 			f.close()
 		
-		self.result = {}
-		self._run()
+	#	self.result = {}
+	#	self._run()
 
 
 	def  _run(self):
@@ -78,16 +92,18 @@ class WordProperties(object):
 
 
 
-	
+#a = WordProperties()
 
-a = WordProperties(text = 'Москва',debug = False)
-k = a.findPropertiesOr(['geo','persn','famn','abbr','patrn'])
+#a._remove_bad_char(text = '23 ')
 
-for i in k:
-	print i
-print "++++++++++++++++++++++=="
 
-k = a.findAllPropertie(['geo'])
+#k = a.findPropertiesOr(['geo','persn','famn','abbr','patrn'])
 
-for i in k:
-	print i
+#for i in k:
+#	print i
+#print "++++++++++++++++++++++=="
+
+#k = a.findAllPropertie(['geo'])
+
+#for i in k:
+#	print i

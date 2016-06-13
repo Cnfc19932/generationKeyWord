@@ -1,1 +1,0 @@
-[{"analysis":[{"lex":"москва","gr":"S,geo,f,inan=nom,sg"}],"text":"Москва"}]
