@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-import main as m
+import generation_key_word as m
 
 
 class testWordProperties(unittest.TestCase):

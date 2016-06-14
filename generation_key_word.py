@@ -73,6 +73,7 @@ class WordProperties(object):
 
 		answerWordList = []
 		for i in self.result:
+			
 			if (set(propertie) & self.result[i]) and len(i) > 2:
 				answerWordList.append(i) 
 				if self.debug:
