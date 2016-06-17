@@ -21,7 +21,7 @@ class WordProperties(object):
 		answer = {'geo' : self.find_propertie([u'geo']), 'person' : self.find_propertie([u'famn',u'persn',u'patrn']), 'abr' : self.find_propertie([u'abbr']), 'all': self.find_propertie([u'S'])}
 		return answer
 
-	def __init__(self, text = '', debug = False, inputFile = 'program/input.txt', outputFile = 'program/output.txt'):
+	def __init__(self, text = '', debug = False, inputFile = str(os.path.dirname(__file__)) + '/program/input.txt', outputFile = str(os.path.dirname(__file__)) + '/program/output.txt'):
 		self.text = ''
 		self.inputFile = inputFile 
 		self.outputFile = outputFile 
@@ -42,7 +42,7 @@ class WordProperties(object):
 		file_text = open(self.inputFile, 'r')
 		if not(file_text.read() == ''):
 
-			answer = os.system(r'program/mystem ' + self.inputFile + ' ' + self.outputFile + ' -i -d --eng-gr -l --format json') 
+			answer = os.system(str(os.path.dirname(__file__)) + r'/program/mystem ' + self.inputFile + ' ' + self.outputFile + ' -i -d --eng-gr -l --format json') 
 			if self.debug:
 				print "Ok! self.text not empty"
 				if not(answer == 0):
